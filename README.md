@@ -1,14 +1,37 @@
-### BIG DATA PROCESSING AND ANALYSIS IMPLEMENTATION
-The dataset file comprises a total of 21 individual files. The files embody a standard data warehouse schema of dimension (Dim) and fact (Fact) tables. Dimension tables, such as DimAccount, DimCurrency, DimCustomer, DimDate, DimGeography, DimProduct, and others, include descriptive attributes for different business entities, including accounts, currencies, customers, and items. The fact tables, such as FactCallCenter, FactCurrencyRate, FactFinance, FactInternetSale, and FactSalesTargets, store quantifiable and measurable data pertaining to various business activities, including financial transactions, sales information, and operational metrics. This schema facilitates intricate analytical queries for corporate intelligence. In order to comprehend the links, it is imperative to ascertain the pivotal columns that establish connections between these tables. Typically, in a data warehouse schema, dimension tables like DimCustomer and DimProduct are linked to fact tables like FactInternetSales through foreign keys.
+# PRODUCTS AND CUSTOMERS DATA ANALYSIS & VISUALIZATION
 
-Here's the relationship structure:
+## Table of contents
+
+- [Big Processing and Analysis Implementation](#Big Processing and Analysis Implementation)
+- [Project Description](#project-description)
+- [Dataset](#dataset)
+- [Relationship Structure](#relationship-structure)
+- [Data Pre-processing](#data-pre-processing)
+- [Exploratory Data Analysis](#exploratory-data-analysis)
+- [Key Insights](#key-insights)
+- [Classification Task: Customer Segmentation](#classification-task:-customer-segmentation)
+  -[Prediction Task: Optimal Pricing Prediction](#prediction-task:-optimal-pricing-prediction)
+- [Acknowledgements](#acknowledgements)
+
+
+
+
+
+
+
+## BIG DATA PROCESSING AND ANALYSIS IMPLEMENTATION
+  The dataset file comprises a total of 21 individual files. The files embody a standard data warehouse schema of dimension (Dim) and fact (Fact) tables. Dimension tables, such as DimAccount, DimCurrency, DimCustomer, DimDate, DimGeography, DimProduct, and others, include descriptive attributes for different business entities, including accounts, currencies, customers, and items. The fact tables, such as FactCallCenter, FactCurrencyRate, FactFinance, FactInternetSale, and FactSalesTargets, store quantifiable and measurable data pertaining to various business activities, including financial transactions, sales information, and operational metrics. This schema facilitates intricate analytical queries for corporate intelligence. In order to comprehend the links, it is imperative to ascertain the pivotal columns that establish connections between these tables. Typically, in a data warehouse schema, dimension tables like DimCustomer and DimProduct are linked to fact tables like FactInternetSales through foreign keys.
+
+#Here's the relationship structure:
 • DimCustomer is linked to FactInternetSales via CustomerKey.
 • DimProduct is linked to FactInternetSales via ProductKey.
-• Other dimension tables may be linked similarly based on their respective keys (e.g., GeographyKey,
-CurrencyKey).
+• Other dimension tables may be linked similarly based on their respective keys (e.g., GeographyKey,CurrencyKey).
+
 Understanding these relationships is crucial for any analysis involving multiple tables, as it allows for the combination of data across different aspects like customer demographics, product details, and sales transactions. For this implementation, Pyspark, Mathplotlib, Seaborn and Scikit-learn libraries were used.
-DATA PRE-PROCESSING
+
+## DATA PRE-PROCESSING
 Missing values were addressed by removing columns, such as "Title" and "MiddleName", that had more than seventy percent of their entries missing. The variables "BirthDate" and "DateFirstPurchase" were transformed to the date-time format. The categorical variables, such as MaritalStatus and Gender, were carefully maintained for consistency.
+
 EXPLORATORY DATA ANALYSIS
 The datasets were explored for insights and the following were some of the insights observed.
 ![Screen Shot 2024-06-18 at 13 46 48](https://github.com/AdedotunTemi/Big-Data-Processing-And-Analysis-Python/assets/168010102/d084c1af-afdc-4261-9766-8d4911f3bc90)
@@ -48,6 +71,7 @@ States.
 Figure 11: Sales volume by product price range
 Figure 11: Shows the sales volumes of the different ranges of products and it can be observed that the low
 range products have the highest sales volume.
+
 CLASSIFICATION TASK: CUSTOMER SEGMENTATION
 Classification models were used to complete a consumer segmentation requirement. The work made use of two datasets: DimCustomer and FactInternetSales. Following that, these datasets are loaded into Spark DataFrames. The DataFrames are linked by a common key, CustomerKey, which indicates a link between customer qualities and purchase behaviour.
 It was done feature engineering to establish new columns TotalSales and PurchaseCount. These features total sales and count purchase orders for each consumer, giving you a complete picture of their spending patterns. Based on total sales, the segmentation logic splits clients into "Low-Value," "Medium-Value," and "High-Value" groups, with quantiles used as segmentation criteria. For model processing, categorical variables such as EnglishEducation and EnglishOccupation are translated into numerical indices

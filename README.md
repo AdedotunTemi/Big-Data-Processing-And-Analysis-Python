@@ -7,8 +7,8 @@
 - [Relationship Structure](#relationship-structure)
 - [Data Pre-processing](#data-pre-processing)
 - [Exploratory Data Analysis](#exploratory-data-analysis)
-- [Classification Task: Customer Segmentation](#classification-task:-customer-segmentation)
-- [Prediction Task: Optimal Pricing Prediction](#prediction-task:-optimal-pricing-prediction)
+- [Classification Task- Customer Segmentation](#classification-task-customer-segmentation)
+- [Prediction Task- Optimal Pricing Prediction](#prediction-task-optimal-pricing-prediction)
 
 
 
@@ -90,7 +90,7 @@ States.
 Figure 11: Shows the sales volumes of the different ranges of products and it can be observed that the low
 range products have the highest sales volume.
 
-## Classification Task:Customer Segmentation
+## Classification Task: Customer Segmentation
 Classification models were used to complete a consumer segmentation requirement. The work made use of two datasets: DimCustomer and FactInternetSales. Following that, these datasets are loaded into Spark DataFrames. The DataFrames are linked by a common key, CustomerKey, which indicates a link between customer qualities and purchase behaviour.
 It was done feature engineering to establish new columns TotalSales and PurchaseCount. These features total sales and count purchase orders for each consumer, giving you a complete picture of their spending patterns. Based on total sales, the segmentation logic splits clients into "Low-Value," "Medium-Value," and "High-Value" groups, with quantiles used as segmentation criteria. For model processing, categorical variables such as EnglishEducation and EnglishOccupation are translated into numerical indices
 
